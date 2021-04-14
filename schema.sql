@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS organization_db;
 
-CREATE TABLE organization_db;
+CREATE DATABASE organization_db;
 
 USE organization_db;
 
@@ -13,9 +13,7 @@ CREATE TABLE employee (
 
  role_id INTEGER(100) NOT NULL,
 
- manager_id INTEGER(100) NOT NULL,
-
- PRIMARY KEY (id),
+ manager_id INTEGER(100) NOT NULL
 );
 
 CREATE TABLE role (
@@ -25,16 +23,11 @@ title VARCHAR(30) NOT NULL,
 
 salary DECIMAL NOT NULL,
 
-department_id INTEGER NOT NULL,
-
-PRIMARY KEY (id),
-
+department_id INTEGER NOT NULL
 );
 
 CREATE TABLE department (
 id INTEGER PRIMARY KEY,
 
-name VARCHAR(30) NOT NULL,
-
-PRIMARY KEY (id),
+name VARCHAR(30) NOT NULL
 );
