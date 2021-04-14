@@ -14,6 +14,8 @@ CREATE TABLE employee (
  role_id INTEGER(100) NOT NULL,
 
  manager_id INTEGER(100) NOT NULL,
+
+ PRIMARY KEY (id),
 );
 
 CREATE TABLE role (
@@ -25,8 +27,14 @@ salary DECIMAL NOT NULL,
 
 department_id INTEGER NOT NULL,
 
+PRIMARY KEY (id),
+
 );
 
 CREATE TABLE department (
+id INTEGER PRIMARY KEY,
 
+name VARCHAR(30) NOT NULL,
+
+PRIMARY KEY (id),
 );
