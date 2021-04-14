@@ -16,8 +16,6 @@ const inquirer = require("inquirer");
 //   mainMenu();
 // });
 
-
-
 // Prompts
 const mainMenu = () => {
   inquirer
@@ -26,7 +24,7 @@ const mainMenu = () => {
         type: "list",
         message: "What do you want to do?",
         name: "direction",
-        choices: ["Add new", "View current", "Update roles"],
+        choices: ["Add new", "View current", "Update roles", "I'm done"],
       },
     ])
     .then((answer) => {
@@ -40,6 +38,9 @@ const mainMenu = () => {
         case "Update roles":
           updateRoles();
           break;
+        case "I'm done":
+          connection.end();
+          break;
       }
     });
 };
@@ -51,7 +52,12 @@ const addMenu = () => {
         type: "list",
         message: "What do you want to add?",
         name: "addWhat",
-        choices: ["Add new Department", "Add new Roles", "Add employee", "Go back"],
+        choices: [
+          "Add new Department",
+          "Add new Roles",
+          "Add employee",
+          "Go back",
+        ],
       },
     ])
     .then((answers) => {
@@ -66,8 +72,8 @@ const addMenu = () => {
           addEmployee();
           break;
         case "Go Back":
-            mainMenu();
-            break;
+          mainMenu();
+          break;
       }
     });
 };
@@ -94,14 +100,12 @@ const viewMenu = () => {
           viewEmployee();
           break;
         case "Go Back":
-            mainMenu();
-            break;
+          mainMenu();
+          break;
       }
     });
 };
 
-const updateRoles = () => {
-    
-};
+const updateRoles = () => {};
 
 mainMenu();
