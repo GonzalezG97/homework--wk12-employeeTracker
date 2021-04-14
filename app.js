@@ -40,3 +40,27 @@ const mainMenu = () => {
             }
         });
 };
+
+const addMenu = () => {
+    inquirer
+        .prompt([
+            {
+            type: 'list',
+            message: 'What do you want to do?',
+            name: 'addWhat',
+            choices: ['Add new Department', 'Add new Roles', 'Add employee']
+            },
+        ]).then(answers => {
+            switch (answers.addWhat) {
+                case 'Add new Department':
+                  addDepartment();
+                  break;
+                case 'Add new Roles':
+                  addRoles();
+                  break;
+                case 'Add employee':
+                  addEmployee();
+                  break;
+              }
+        })
+};
