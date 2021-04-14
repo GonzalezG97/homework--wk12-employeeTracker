@@ -46,7 +46,7 @@ const addMenu = () => {
         .prompt([
             {
             type: 'list',
-            message: 'What do you want to do?',
+            message: 'What do you want to add?',
             name: 'addWhat',
             choices: ['Add new Department', 'Add new Roles', 'Add employee']
             },
@@ -63,4 +63,32 @@ const addMenu = () => {
                   break;
               }
         })
+};
+
+const viewMenu = () => {
+    inquirer
+        .prompt([
+            {
+            type: 'list',
+            message: 'What do you want to view?',
+            name: 'view',
+            choices: ['View Departments', 'View Roles', 'View Employee']
+            },
+        ]).then(answer => {
+            switch (answer.view {
+                case 'View Departments':
+                    viewDepartments();
+                    break;
+                case 'View Roles':
+                    viewRoles();
+                    break;
+                case 'View Employee':
+                    viewEmployee();
+                    break;                
+            }
+        });
+};
+
+const updateRoles = () => {
+
 };
