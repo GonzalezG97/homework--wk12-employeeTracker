@@ -1,20 +1,20 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const functions = require("functions")
-// // Database connection
-// const connection = mysql.createConnection({
-//   host: "localhost",
-//   port: process.env.PORT || 8080,
-//   user: "root",
-//   password: "",
-//   database: "organization_db",
-// });
+const functions = require("./functions")
+// Database connection
+const connection = mysql.createConnection({
+  host: "localhost",
+  port: process.env.PORT || 8080,
+  user: process.env.DB_USER,
+  password: process.env.DB_PW,
+  database: process.env.DB_NAME,
+});
 
-// connection.connect((err) => {
-//   if (err) throw err;
-//   console.log(`connected as id ${connection.threadId}`);
-//   mainMenu();
-// });
+connection.connect((err) => {
+  if (err) throw err;
+  console.log(`connected as id ${connection.threadId}`);
+  mainMenu();
+});
 
 // Prompts
 const mainMenu = () => {
