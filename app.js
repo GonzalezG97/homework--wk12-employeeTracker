@@ -1,13 +1,13 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-
+const functions = require("functions")
 // // Database connection
 // const connection = mysql.createConnection({
 //   host: "localhost",
-//   port: 8080,
+//   port: process.env.PORT || 8080,
 //   user: "root",
 //   password: "",
-//   database: "",
+//   database: "organization_db",
 // });
 
 // connection.connect((err) => {
@@ -63,13 +63,13 @@ const addMenu = () => {
     .then((answers) => {
       switch (answers.addWhat) {
         case "Add new Department":
-          addDepartment();
+          functions.addDepartment();
           break;
         case "Add new Roles":
-          addRoles();
+          functions.addRole();
           break;
         case "Add employee":
-          addEmployee();
+          functions.addEmployee();
           break;
         case "Go Back":
           mainMenu();
@@ -91,13 +91,13 @@ const viewMenu = () => {
     .then((answer) => {
       switch (answer.view) {
         case "View Departments":
-          viewDepartments();
+          functions.viewDepartments();
           break;
         case "View Roles":
-          viewRoles();
+          functions.viewRoles();
           break;
         case "View Employee":
-          viewEmployee();
+          functions.viewEmployees();
           break;
         case "Go Back":
           mainMenu();
