@@ -17,7 +17,11 @@ addRole (role)  {
     )
 };
 
-addEmployee ()  {}
+addEmployee (emp)  {
+    return this.connection.query(
+        `INSERT INTO employee SET ? ${emp}`
+    )
+}
 
 viewDepartments ()  {}
 

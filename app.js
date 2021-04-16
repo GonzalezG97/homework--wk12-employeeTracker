@@ -51,7 +51,7 @@ const addMenu = () => {
     .then((answers) => {
       switch (answers.addWhat) {
         case "Add new Department":
-          functions.addDepartment();
+          createDepartment();
           break;
         case "Add new Roles":
           functions.addRole();
@@ -96,4 +96,16 @@ const viewMenu = () => {
 
 const updateRoles = () => {};
 
-mainMenu();
+async function createDepartment(){
+  const newDepartment = await inquirer
+    .prompt([
+      {
+        type: 'input',
+        message: 'What is the name of the department?',
+        name: 'dptName'
+      },
+    ])
+    
+    await functions.addDepartment(newDepartment)
+    
+};
