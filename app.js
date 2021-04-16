@@ -1,8 +1,6 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
-const functions = require("./db/functions")
-
-
+const functions = require("./db/functions");
 
 // Prompts
 const mainMenu = () => {
@@ -54,7 +52,7 @@ const addMenu = () => {
           createDepartment();
           break;
         case "Add new Roles":
-          functions.addRole();
+          createRole();
           break;
         case "Add employee":
           functions.addEmployee();
@@ -96,16 +94,36 @@ const viewMenu = () => {
 
 const updateRoles = () => {};
 
-async function createDepartment(){
-  const newDepartment = await inquirer
-    .prompt([
-      {
-        type: 'input',
-        message: 'What is the name of the department?',
-        name: 'dptName'
-      },
-    ])
-    
-    await functions.addDepartment(newDepartment)
-    
-};
+async function createDepartment() {
+  const newDepartment = await inquirer.prompt([
+    {
+      type: "input",
+      message: "What is the name of the department?",
+      name: "dptName",
+    },
+  ]);
+
+  await functions.addDepartment(newDepartment);
+}
+
+async function createRole() {
+  const newRole = await inquirer.prompt([
+    {
+      type: "input",
+      message: "What is the role title?",
+      name: "roleTitle",
+    },
+    {
+      type: "input",
+      message: "What is the salary for this role?",
+      name: "roleSalary",
+    },
+    {
+      type: "input",
+      message: "What is the Department ID that is connected to this role?",
+      name: "roleDptID",
+    },
+  ]);
+
+  await functions.addRole(newRole);
+}
