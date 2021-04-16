@@ -55,7 +55,7 @@ const addMenu = () => {
           createRole();
           break;
         case "Add employee":
-          functions.addEmployee();
+          createEmployee();
           break;
         case "Go Back":
           mainMenu();
@@ -94,6 +94,7 @@ const viewMenu = () => {
 
 const updateRoles = () => {};
 
+// These prompts handle all my creation inputs
 async function createDepartment() {
   const newDepartment = await inquirer.prompt([
     {
@@ -104,7 +105,8 @@ async function createDepartment() {
   ]);
 
   await functions.addDepartment(newDepartment);
-}
+  await console.log('Department created!');
+};
 
 async function createRole() {
   const newRole = await inquirer.prompt([
@@ -126,4 +128,34 @@ async function createRole() {
   ]);
 
   await functions.addRole(newRole);
-}
+  await console.log('Role has been created!')
+};
+
+async function createEmployee() {
+  const newEmployee = await inquirer.prompt([
+    {
+      type: "input",
+      message: "What is the employees first name?",
+      name: "empFirstName",
+    },
+    {
+      type: "input",
+      message: "What is the employees last name?",
+      name: "empLastname",
+    },
+    {
+      type: "input",
+      message: "What is the role Id connected to this employee?",
+      name: "empRID",
+    },
+    {
+      type: "input",
+      message: "What is the Manager ID that is connected to this employee?"
+    },
+  ]);
+
+  await functions.addEmployee(newEmployee);
+  console.log('You created a new Employee!');
+};
+
+module.exports = app

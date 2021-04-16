@@ -1,6 +1,6 @@
 const mysql = require("mysql");
 const util = require("util");
-
+const app = require("../app")
 // Database connection
 const connection = mysql.createConnection({
   host: "localhost",
@@ -13,7 +13,7 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) throw err;
   console.log(`connected as id ${connection.threadId}`);
-  mainMenu();
+  app.mainMenu();
 });
 
 //This allows the code to use promises instead of callbacks

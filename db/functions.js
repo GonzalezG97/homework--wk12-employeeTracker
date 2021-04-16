@@ -23,9 +23,22 @@ addEmployee (emp)  {
     )
 }
 
-viewDepartments ()  {}
+viewDepartments ()  {
+    return this.connection.query(
+        `SELECT name FROM department `, (err, result) => {
+            if (err) throw err;
+            console.log(result);
+        });
+    
+}
 
-viewRoles ()  {}
+viewRoles ()  {
+    return this.connection.query(
+        `SELECT * FROM role `, (err, result) => {
+            if (err) throw err;
+            console.log(result);
+        });
+};
 
 viewEmployees ()  {}
 }
