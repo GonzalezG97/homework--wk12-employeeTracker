@@ -25,7 +25,7 @@ addEmployee (emp)  {
 
 viewDepartments ()  {
     return this.connection.query(
-        `SELECT name FROM department `, (err, result) => {
+        `SELECT * FROM department `, (err, result) => {
             if (err) throw err;
             console.log(result);
         });
@@ -40,7 +40,13 @@ viewRoles ()  {
         });
 };
 
-viewEmployees ()  {}
+viewEmployees ()  {
+    return this.connection.query(
+        `SELECT * FROM employee `, (err, result) => {
+            if (err) throw err;
+            console.log(result);
+        });
+}
 }
 
 module.exports = new Functions
