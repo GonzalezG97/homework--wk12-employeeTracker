@@ -1,6 +1,5 @@
 const mysql = require("mysql");
 const util = require("util");
-const App = require("../app");
 require('dotenv').config();
 
 // Database connection
@@ -15,7 +14,6 @@ const connection = mysql.createConnection({
 connection.connect((err) => {
   if (err) throw err;
   console.log(`connected as id ${connection.threadId}`);
-  app.mainMenu();
 });
 
 //This allows the code to use promises instead of callbacks

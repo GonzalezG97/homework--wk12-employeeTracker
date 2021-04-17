@@ -157,5 +157,3 @@ async function createEmployee() {
   await functions.addEmployee(newEmployee);
   console.log('You created a new Employee!');
 };
-
-module.exports = App
