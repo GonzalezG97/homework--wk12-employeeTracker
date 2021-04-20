@@ -1,6 +1,6 @@
-const mysql = require("mysql");
 const inquirer = require("inquirer");
 const functions = require("./db/functions");
+
 
 // Prompts
 const mainMenu = () => {
@@ -10,7 +10,7 @@ const mainMenu = () => {
         type: "list",
         message: "What do you want to do?",
         name: "direction",
-        choices: ["Add new", "View current", "Update roles", "I'm done"],
+        choices: ["Add new", "View current", "Update roles", `I'm done`],
       },
     ])
     .then((answer) => {
@@ -24,9 +24,10 @@ const mainMenu = () => {
         case "Update roles":
           updateRoles();
           break;
-        case "I'm done":
+        case `I'm done`:
           connection.end();
           break;
+        default: return;
       }
     });
 };
@@ -157,3 +158,5 @@ async function createEmployee() {
   await functions.addEmployee(newEmployee);
   console.log('You created a new Employee!');
 };
+
+mainMenu()
