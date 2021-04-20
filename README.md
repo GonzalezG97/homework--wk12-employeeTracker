@@ -6,7 +6,9 @@ Developers are often tasked with creating interfaces that make it easy for non-d
 
 ## Instructions
 
-To first start please do an npm install of all the dependencies. To start the project you would type 'node app.js'.
+First please do an npm install of all the dependencies. 
+
+To start the project you would type 'node app.js'.
 
 ## Questions
 
